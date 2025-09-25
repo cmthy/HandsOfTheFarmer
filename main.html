@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hands of the Farmer</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="icon" type="image/x-icon" href="favicon-32.ico">
+    <link rel="shortcut icon" href="favicon-32.ico">
+    <link rel="stylesheet" href="https://use.typekit.net/pxj4yiv.css">
+
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+</head>
+
+<body>
+    <div id="intro-overlay">
+        <img src="a/transition.gif" alt="Transition animation">
+    </div>
+    <div id="bar">
+        <h1 id="flowering">flowering</h1>
+        <h1 id="berry-growth">berry growth</h1>
+        <h1 id="harvest">harvest</h1>
+        <h1 id="drying">drying</h1>
+        <h1 id="renewal">renewal</h1>
+    </div>
+    <div id="overlay">
+        <p>Hands Of The Farmer is inspired by my father - a farmer who has dedicated his life to planting and nurturing
+            coffee fields. His quiet love and passion for agriculture, especially coffee, have shaped not only his
+            journey but also my family’s life. From the very beginning, everything was difficult and uncertain, yet
+            through patience, endless care, and countless hours of labor, he has grown resilience and harvested
+            abundance. Coffee, for us, is more than a crop; it is a symbol of love, perseverance, and livelihood. This
+            project intertwines the narrative of coffee’s growth with sound, serving as both a creative exploration and
+            a heartfelt tribute to my father, honoring his devotion and the seeds he has sown for our future.</p>
+        <div id="explore">
+            <div style="color: var(--red-primary)">press right and left arrow to navigate | press R to reset</div>
+            <a href="index.html">home</a>
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+    <div id="infobox">
+        <img src="a/infobox.gif" alt="Infobox animation">
+    </div>
+    <div id="instructionphase4">
+        <img src="a/navigate.png" />
+    </div>
+    <div id="instructionphase3">
+        <h2>click randomly, there might be sound</h2>
+    </div>
+
+    <script>
+        // Get references to the HTML elements
+        const infobox = document.getElementById('infobox');
+        const overlay = document.getElementById('overlay');
+
+        // Event listener to show the overlay when the infobox is clicked
+        infobox.addEventListener('click', () => {
+            overlay.style.display = 'flex';
+        });
+
+        // Event listener to hide the overlay when clicking on the overlay itself
+        overlay.addEventListener('click', (event) => {
+            // Check if the click occurred directly on the overlay, not on the content box inside it
+            if (event.target === overlay) {
+                overlay.style.display = 'none';
+            }
+        });
+        const overlay2 = document.getElementById("intro-overlay");
+        const gifDuration = 3000; // ms, bằng thời lượng GIF
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                overlay2.style.transition = "opacity 1s ease";
+                overlay2.style.opacity = "0";
+                setTimeout(() => overlay2.remove(), 1000); // remove khỏi DOM sau khi mờ
+            }, gifDuration);
+        });
+    </script>
+    <script src="sketchmain.js"></script>
+    <script src="phase1.js"></script>
+</body>
+
+</html>

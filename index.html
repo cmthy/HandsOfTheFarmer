@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hands of the Farmer</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="icon" type="image/x-icon" href="favicon-32.ico">
+  <link rel="shortcut icon" href="favicon-32.ico">
+  <link rel="stylesheet" href="https://use.typekit.net/pxj4yiv.css">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.sound.min.js"></script>
+</head>
+
+<body>
+
+  <div id="overlay">
+    <p>Hands Of The Farmer is inspired by my father - a farmer who has dedicated his life to planting and nurturing
+      coffee fields. His quiet love and passion for agriculture, especially coffee, have shaped not only his journey but
+      also my family’s life. From the very beginning, everything was difficult and uncertain, yet through patience,
+      endless care, and countless hours of labor, he has grown resilience and harvested abundance. Coffee, for us, is
+      more than a crop; it is a symbol of love, perseverance, and livelihood. This project intertwines the narrative of
+      coffee’s growth with sound, serving as both a creative exploration and a heartfelt tribute to my father, honoring
+      his devotion and the seeds he has sown for our future.</p>
+  </div>
+  <div id="infobox">
+    <img src="a/infobox.gif" alt="Infobox animation">
+  </div>
+
+  <div id="explore"><a href="main.html">explore</a></div>
+  <div id="image-container">
+    <img  style="width: 100vw; top: 10%" src="a/bee.gif"/>
+    <img style="width: 100vw; top:0" src="a/coverA3-2.png" />
+    
+  </div>
+
+  <script>
+    // Get references to the HTML elements
+    const infobox = document.getElementById('infobox');
+    const overlay = document.getElementById('overlay');
+
+    // Event listener to show the overlay when the infobox is clicked
+    infobox.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+    });
+
+    // Event listener to hide the overlay when clicking on the overlay itself
+    overlay.addEventListener('click', (event) => {
+      // Check if the click occurred directly on the overlay, not on the content box inside it
+      if (event.target === overlay) {
+        overlay.style.display = 'none';
+      }
+    });
+  </script>
+  <script src="sketch.js"></script>
+
+</body>
+
+</html>
